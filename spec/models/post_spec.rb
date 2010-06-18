@@ -1,14 +1,15 @@
 require 'spec_helper'
 
 describe Post do
-  before(:each) do
-    @valid_attributes = {
-      :title => "value for title",
-      :body => "value for body"
-    }
-  end
+  let(:title) { "I am a post" }
+  subject { Post.new(:title => title ) }
 
-  it "should create a new instance given valid attributes" do
-    Post.create!(@valid_attributes)
+  it 'uses title for string representation' do
+    subject.to_s.should == title
   end
+end
+
+describe Post, "validations" do
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:body) }
 end

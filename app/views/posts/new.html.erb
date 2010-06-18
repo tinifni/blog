@@ -1,5 +1,10 @@
 <% form_for(@post) do |form| -%>
+  <%= form.error_messages %>
+  <%= form.label :title, 'Title' %>
   <%= form.text_field :title, :label => 'Title' %>
+  <%= form.label :body, 'Body' %>
   <%= form.text_area :body, :label => 'Body' %>
+  <%= form.label :published, 'Published' %>
+  <%= form.check_box :published, :label => 'Published' %>
   <%= form.submit 'Create' %>
 <% end -%>

@@ -12,6 +12,8 @@ module NavigationHelpers
       new_password_path
     when /the new post page/i
       new_post_path
+    when /the posts page/i
+      '/posts'
 
     # Add more page name => path mappings here
 
