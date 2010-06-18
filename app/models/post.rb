@@ -4,4 +4,8 @@ class Post < ActiveRecord::Base
   def to_s
     title
   end
+
+  def published?
+    published
+  end
 end

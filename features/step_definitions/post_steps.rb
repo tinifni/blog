@@ -10,3 +10,6 @@ end
 When /^that an unpublished post exists$/ do
   Factory :post, :published => false 
 end
+
+Given /^that I am on a post page$/ do
+end

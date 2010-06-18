@@ -4,6 +4,9 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the new navigation page/
+      new_navigation_path
+
     when /the sign up page/i
       sign_up_path
     when /the sign in page/i
@@ -14,6 +17,9 @@ module NavigationHelpers
       new_post_path
     when /the posts page/i
       '/posts'
+    when /the post page for "(.*)"/i
+      post = Post.first(:conditions => {:title => $1 } ) or raise "no such post #{$1}"
+      post_path(post)
 
     # Add more page name => path mappings here
 

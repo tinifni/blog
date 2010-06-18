@@ -23,10 +23,25 @@ Feature: Posts
 
   Scenario: Only display published posts on index
     Given the following posts exist:
-      | title              | body   | published |
-      | "Published Post"   | "body" | true      |
-      | "Unpublished Post" | "body" | false     |
+      | title            | body | published |
+      | Published Post   | body | true      |
+      | Unpublished Post | body | false     |
     When I am on the posts page
     Then I should see "Published Post"
     And I should not see "Unpublished Post"
+
+  Scenario: I visit a single posts page
+    Given the following posts exist:
+      | title            | body | published |
+      | Published Post   | body | true      |
+      | Unpublished Post | body | false     |
+    When I go to the post page for "Published Post"
+    Then I should see "body"
+    When I go to the post page for "Unpublished Post"
+    Then I should see "Not published yet"
+
+  Scenario: Each post page has published comments
+     Given that I am on a post page
+     And that there are published comments
+     Then I should see comments
     

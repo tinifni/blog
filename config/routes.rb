@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :posts, :only => [:index, :new, :create]
-  map.root :controller => 'post', :action => 'index'
+  map.resources :posts, :only => [:index, :new, :create, :show]
+  map.root :controller => 'posts', :action => 'index'
   Clearance::Routes.draw(map)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):

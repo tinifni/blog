@@ -8,6 +8,10 @@
   </head>
   <body class="<%= body_class %>">
     <%= render :partial => 'shared/flashes' -%>
+    <ul class="navigation">
+      <li><%= link_to_unless_current "Home", root_path %></li>
+      <li><%= link_to_unless_current "New Post", new_post_path %></li>
+    </ul>
     <%= yield %>
     <%= render :partial => 'shared/javascript' %>
   </body>
